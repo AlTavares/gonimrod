@@ -10,7 +10,9 @@ Command line app to send messages using the Nimrod API https://www.nimrod-messen
 ## Usage
 
 `gonimrod -k [api_key] [message]`
-or set the NIMROD_KEY environment variable and use it like this
+
+or set the NIMROD_KEY environment variable and use it like this:
+
 `gonimrod [message]`
 
 ## Contributing
