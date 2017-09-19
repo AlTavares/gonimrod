@@ -3,6 +3,8 @@ package main
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
+	"io/ioutil"
 	"net/http"
 	"time"
 )
@@ -47,6 +49,13 @@ func (n *Nimrod) sendMessage(message string) error {
 	if err != nil {
 		return err
 	}
-	resp.Body.Close()
+	result, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		return err
+	}
+	defer resp.Body.Close()
+	if resp.StatusCode < 200 || resp.StatusCode >= 300 {
+		return fmt.Errorf("Response status code: %d - %s", resp.StatusCode, result)
+	}
 	return nil
 }
