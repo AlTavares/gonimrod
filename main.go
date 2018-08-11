@@ -7,6 +7,8 @@ import (
 	"log"
 	"os"
 	"strings"
+
+	. "github.com/AlTavares/gonimrod/nimrod"
 )
 
 func main() {
@@ -16,7 +18,7 @@ func main() {
 	message := getMessage()
 	key := validateKey(keyPointer)
 	nimrod := Nimrod{key}
-	err := nimrod.sendMessage(message)
+	err := nimrod.SendMessage(message)
 	if err != nil {
 		log.Fatalln(err)
 	}

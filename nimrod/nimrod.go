@@ -1,4 +1,4 @@
-package main
+package nimrod
 
 import (
 	"bytes"
@@ -26,7 +26,7 @@ var httpClient = &http.Client{
 	Timeout: time.Second * 10,
 }
 
-func (n *Nimrod) sendMessage(message string) error {
+func (n *Nimrod) SendMessage(message string) error {
 
 	data := payload{
 		APIKey:  n.Key,
